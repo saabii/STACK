@@ -1,0 +1,51 @@
+class Stack:
+   def __init__(self, max_len =100, *args):
+     self.stack = list(args)
+     self.max_len = max_len
+
+   def push(self):
+       if len(self.stack) < self.max_len:
+           n = input('Bведите число. которое хотите добавить')
+           self.stack = self.stack + [n]
+           return self.stack
+
+   def pop (self):
+       print(self.stack[-1])
+       self.stack = self.stack[:-1]
+       return self.stack
+
+   def back (self):
+       return self.stack[-1]
+
+   def size (self):
+       return len(self.stack)
+
+   def clear (self):
+       self.stack = []
+       return self.stack
+
+def exit():
+   print("Bye")
+
+
+if __name__ == '__main__':
+    stack = Stack()
+    while True:
+        command = input("Введите вашу команду:")
+        if command == 'push':
+           stack.push()
+           print ("Ok")
+        elif command == 'pop':
+           stack.pop()
+        elif command == 'back':
+             #back(lis)
+            print(stack.back())
+        elif command == 'size':
+           print(stack.size())
+        elif command == 'clear':
+           stack.clear()
+        elif command == 'exit':
+           print('bye')
+           break
+        else:
+           print('Error')
